@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love 💙</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Partículas de corações caindo -->
+    <div id="hearts-container"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <h1 class="title-animated">For My Love 💙</h1>
+        <p class="subtitle">Um lugar especial, feito para demonstrar meu amor por você</p>
+    </header>
+
+    <!-- Popup de Saudação -->
+    <div id="greeting-popup" class="greeting-popup">
+        <div class="greeting-popup-content">
+            <span class="close" onclick="closeGreetingPopup()">&times;</span>
+            <div id="greeting-popup-body"></div>
+        </div>
+    </div>
+
+    <!-- Menu Principal -->
+    <main class="main-content">
+        <div class="cards-container">
+            <!-- Card 1: Mensagens para Dias Ruins -->
+            <div class="card" onclick="openCategory('mensagens')">
+                <div class="card-icon">💙</div>
+                <h3>Meu Amor</h3>
+                <p>Para quando você precisar sorrir, e lembrar o quanto você é incrível</p>
+            </div>
+
+            <!-- Card 2: Suas Qualidades -->
+            <div class="card" onclick="openCategory('qualidades')">
+                <div class="card-icon">✨</div>
+                <h3>Suas Qualidades</h3>
+                <p>Tudo que eu amo em você, e que me faz amar cada vez mais</p>
+            </div>
+
+            <!-- Card 3: Nossos Planos -->
+            <div class="card" onclick="openCategory('planos')">
+                <div class="card-icon">👰🤵</div>
+                <h3>Nossos Planos</h3>
+                <p>Tudo que quero viver ao seu lado, e que juntos vamos construir nosso futuro</p>
+            </div>
+
+            <!-- Card 4: Músicas para Você -->
+            <div class="card" onclick="openCategory('musicas')">
+                <div class="card-icon">🎵</div>
+                <h3>Músicas para Você</h3>
+                <p>Músicas que me fazem pensar em você</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para Mensagens -->
+    <div id="modal-mensagens" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mensagens')">&times;</span>
+            <h2>Mensagens para o meu único amor💙</h2>
+            <div class="messages-grid">
+                <button class="message-btn" onclick="showMessage(1)">💙</button>
+                <button class="message-btn" onclick="showMessage(2)">💙</button>
+                <button class="message-btn" onclick="showMessage(3)">💙</button>
+                <button class="message-btn" onclick="showMessage(4)">💙</button>
+                <button class="message-btn" onclick="showMessage(5)">💙</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Planos -->
+    <div id="modal-planos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('planos')">&times;</span>
+            <h2>Nossos Planos Futuros 🏠</h2>
+            <div class="messages-grid">
+                <button class="message-btn" onclick="showPlano(1)">Vem ver bb</button>
+                <button class="message-btn" onclick="showPlano(2)">Vem ver bb</button>
+                <button class="message-btn" onclick="showPlano(3)">Vem ver bb</button>
+                <button class="message-btn" onclick="showPlano(4)">Vem ver bb</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Qualidades -->
+    <div id="modal-qualidades" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('qualidades')">&times;</span>
+            <h2>O quão incrível você é ✨</h2>
+            <div class="messages-grid">
+                <button class="message-btn" onclick="showQualidade(1)">Vem ver papai</button>
+                <button class="message-btn" onclick="showQualidade(2)">Vem ver papai 2</button>
+                <button class="message-btn" onclick="showQualidade(3)">Vem ver papai 3</button>
+                <button class="message-btn" onclick="showQualidade(4)">Vem ver papai 4</button>
+                <button class="message-btn" onclick="showQualidade(5)">Vem ver papai 5</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Puzzles -->
+    <div id="modal-puzzles" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('puzzles')">&times;</span>
+            <h2>Nossos Puzzles 🧩</h2>
+            <div class="messages-grid">
+                <button class="message-btn" onclick="startPuzzle(1)">1</button>
+                <button class="message-btn" onclick="startPuzzle(2)">2</button>
+                <button class="message-btn" onclick="startPuzzle(3)">3</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup para exibir mensagens individuais -->
+    <div id="popup-display" class="popup-display">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div id="popup-body"></div>
+        </div>
+    </div>
+
+    <!-- Popup para Puzzles -->
+    <div id="puzzle-popup" class="popup-display">
+        <div class="popup-content puzzle-container">
+            <span class="close" onclick="closePuzzle()">&times;</span>
+            <h3 id="puzzle-title"></h3>
+            <p id="puzzle-question"></p>
+            <div id="puzzle-options"></div>
+            <div id="puzzle-result"></div>
+        </div>
+    </div>
+
+    <!-- Modal para Músicas -->
+    <div id="modal-musicas" class="modal">
+        <div class="modal-content modal-musicas">
+            <span class="close" onclick="closeModal('musicas')">&times;</span>
+            <h2>Músicas Dedicadas para Você 🎵💙</h2>
+            <div id="musicas-list" class="musicas-list"></div>
+        </div>
+    </div>
+
+    <!-- Modal para expandir imagens -->
+    <div id="image-modal" class="image-modal">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <div class="image-modal-content">
+            <img id="expanded-image" src="" alt="Foto especial">
+            <div class="image-caption" id="image-caption"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
